@@ -268,15 +268,3 @@ For issues or questions:
 
 ---
 
-**Made with C, C++, and Python** | Version 1.0.0
-```
-
-This README is:
-- ✅ **Clean and organized** - Clear sections with table of contents
-- ✅ **Practical** - Real commands that work
-- ✅ **Concise** - No unnecessary diagrams or fluff
-- ✅ **User-friendly** - Tables for quick reference
-- ✅ **Troubleshooting focused** - Common issues with solutions
-- ✅ **Proper markdown** - Renders correctly on GitHub
-
-Save this as `README.md` in your project root!
