@@ -1,7 +1,7 @@
-Here's a comprehensive **README.md** with badges, flow diagram, and complete documentation:
 
-```markdown
-# 🔷 TriCore Terminal Engine
+
+```
+#  TriCore Terminal Engine
 
 [![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)](https://github.com/yourusername/TriCore-Engine)
 [![C](https://img.shields.io/badge/C-00599C?logo=c&logoColor=white)](https://en.wikipedia.org/wiki/C_(programming_language))
