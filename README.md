@@ -1,307 +1,284 @@
 
 
-```
-#  TriCore Terminal Engine
+```markdown
+# TriCore Terminal Engine
 
-[![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)](https://github.com/yourusername/TriCore-Engine)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![C](https://img.shields.io/badge/C-00599C?logo=c&logoColor=white)](https://en.wikipedia.org/wiki/C_(programming_language))
-[![C++](https://img.shields.io/badge/C++-00599C?logo=cplusplus&logoColor=white)](https://en.wikipedia.org/wiki/C%2B%2B)
+[![C++](https://img.shields.io/badge/C++-00599C?logo=cplusplus&logoColor=white)](https://isocpp.org/)
 [![Python](https://img.shields.io/badge/Python-3776AB?logo=python&logoColor=white)](https://www.python.org/)
-[![Tkinter](https://img.shields.io/badge/Tkinter-UI-green.svg)](https://docs.python.org/3/library/tkinter.html)
-[![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
-[![Platform](https://img.shields.io/badge/platform-Linux%20%7C%20macOS%20%7C%20WSL-lightgrey)](https://ubuntu.com/)
+[![Platform](https://img.shields.io/badge/Platform-Linux%20%7C%20macOS%20%7C%20WSL-blue)](https://ubuntu.com/)
 
-## 📋 Overview
+A multi-language demonstration project that integrates **C**, **C++**, and **Python** into a single application with a graphical dashboard.
 
-**TriCore Terminal Engine** is a multi-language demonstration project that showcases communication between **C**, **C++**, and **Python** processes. It features a real-time dashboard with calculator functionality, server monitoring, and client activity tracking.
+## Table of Contents
+- [Overview](#overview)
+- [Features](#features)
+- [Project Structure](#project-structure)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Calculator Guide](#calculator-guide)
+- [Troubleshooting](#troubleshooting)
+- [License](#license)
 
-### 🎯 Key Features
+## Overview
 
-- 🔄 **Multi-language Integration** - C server, C++ client, Python GUI
-- 🧮 **Advanced Calculator** - Full arithmetic operations with history
-- 📊 **Real-time Monitoring** - Server and client activity logs
-- 🎨 **Modern UI** - Dark-themed dashboard with tabs
-- 🚀 **One-Command Launch** - Automated compilation and execution
+TriCore Terminal Engine demonstrates how three different programming languages can work together:
+- **C Server** - Backend logic and data processing
+- **C++ Client** - Client-side operations and messaging
+- **Python GUI** - User interface with Tkinter
 
-## 🏗️ Architecture Flow
+All components launch from a single bash script and run simultaneously.
 
-```mermaid
-graph TB
-    subgraph "User Interaction"
-        A[User runs ./run.sh]
-    end
-    
-    subgraph "Script Layer"
-        B[run.sh - Bash Script]
-        B1[Compile server.c]
-        B2[Compile client.cpp]
-        B3[Launch processes]
-    end
-    
-    subgraph "Backend Layer"
-        C[C Server<br/>backend/server.c]
-        D[C++ Client<br/>backend/client.cpp]
-    end
-    
-    subgraph "Frontend Layer"
-        E[Python Tkinter GUI<br/>frontend/visualizer.py]
-        F[Calculator Tab]
-        G[Server Monitor Tab]
-        H[Client Monitor Tab]
-    end
-    
-    subgraph "Output"
-        I[User Dashboard]
-    end
-    
-    A --> B
-    B --> B1
-    B --> B2
-    B --> B3
-    B1 --> C
-    B2 --> D
-    B3 --> E
-    E --> F
-    E --> G
-    E --> H
-    C -.-> G
-    D -.-> H
-    F --> I
-    G --> I
-    H --> I
-    
-    style A fill:#f9f,stroke:#333,stroke-width:2px
-    style C fill:#ff9999,stroke:#333,stroke-width:2px
-    style D fill:#ffcc99,stroke:#333,stroke-width:2px
-    style E fill:#99ccff,stroke:#333,stroke-width:2px
-```
+## Features
 
-## 📁 Project Structure
+- 🎯 **One-Command Launch** - Single script compiles and runs everything
+- 🧮 **Built-in Calculator** - Full arithmetic operations with advanced functions
+- 📊 **Real-time Monitoring** - Live server and client logs
+- 🎨 **Modern Dark Theme** - Professional-looking interface
+- 🔄 **Automatic Cleanup** - Proper process termination on exit
+
+## Project Structure
 
 ```
 TriCore-Engine/
-├── 📁 backend/
-│   ├── 📄 server.c          # C server (port 8080)
-│   └── 📄 client.cpp        # C++ client simulator
-├── 📁 frontend/
-│   └── 📄 visualizer.py     # Python Tkinter GUI
-├── 📁 scripts/
-│   └── 📄 run.sh            # Orchestration script
-├── 📄 README.md
-└── 📄 LICENSE
+│
+├── backend/
+│   ├── server.c          # C server (ticks every 2 seconds)
+│   └── client.cpp        # C++ client (messages every second)
+│
+├── frontend/
+│   └── visualizer.py     # Python Tkinter dashboard
+│
+├── scripts/
+│   └── run.sh            # Orchestration script
+│
+└── README.md
 ```
 
-## 🔄 Process Flow
-
-```mermaid
-sequenceDiagram
-    participant User
-    participant Script as run.sh
-    participant C as Server (C)
-    participant CPP as Client (C++)
-    participant Python as GUI (Python)
-    
-    User->>Script: Execute ./run.sh
-    Script->>Script: cd to project root
-    Script->>C: gcc compile server.c
-    Script->>CPP: g++ compile client.cpp
-    Script->>C: Launch server (background)
-    Script->>CPP: Launch client (background)
-    Script->>Python: Launch visualizer.py
-    Python->>User: Display dashboard
-    Note over Python: Calculator | Server | Client tabs
-    User->>Python: Click Shutdown
-    Python->>Script: Exit (close GUI)
-    Script->>C: Kill server process
-    Script->>CPP: Kill client process
-    Script->>User: Engine stopped
-```
-
-## 🚀 Getting Started
+## Installation
 
 ### Prerequisites
 
-Ensure you have the following installed:
-
+**Ubuntu/Debian:**
 ```bash
-# For Ubuntu/Debian
 sudo apt update
 sudo apt install gcc g++ python3 python3-tk
+```
 
-# For macOS
+**macOS:**
+```bash
 brew install gcc python3
 brew install python-tk
+```
 
-# For Arch Linux
+**Arch Linux:**
+```bash
 sudo pacman -S gcc python python-tkinter
 ```
 
-### Installation
+### Setup
 
-1. **Clone the repository**
-```bash
-git clone https://github.com/yourusername/TriCore-Engine.git
-cd TriCore-Engine
-```
+1. **Clone or download** the project to your machine
 
-2. **Make the script executable**
+2. **Make the script executable:**
 ```bash
 chmod +x scripts/run.sh
 ```
 
-3. **Run the engine**
+3. **Run the engine:**
 ```bash
 ./scripts/run.sh
 ```
 
-## 💻 Usage Guide
+## Usage
 
-### Calculator Tab
-| Operation | Button | Example | Result |
-|-----------|--------|---------|--------|
-| Addition | `+` | `25+75` | `100` |
-| Subtraction | `-` | `100-45` | `55` |
-| Multiplication | `*` | `15*6` | `90` |
-| Division | `/` | `100/4` | `25` |
-| Exponentiation | `^` | `2^3` | `8` |
-| Square Root | `√` | `√16` | `4` |
-| Power of 2 | `x²` | `5²` | `25` |
-| Clear All | `C` | - | - |
-| Clear Last | `←` | - | - |
+When you run the engine, three things happen automatically:
 
-### Advanced Calculations
-```python
-# Supported expressions
-(10+5)*2      # Parentheses
-15%4          # Modulo
-2^8           # Power
-math.sqrt(25) # Square root (via √ button)
-```
+1. **Compilation** - `server.c` and `client.cpp` are compiled
+2. **Execution** - Server and client start in the background
+3. **GUI Launch** - Python dashboard opens with three tabs:
 
-### Server Monitor Tab
-- Displays real-time server logs
-- Shows connection status
-- Port 8080 listening indicator
+### Tab 1: Calculator
+Perform mathematical calculations (see guide below)
 
-### Client Monitor Tab
-- Shows client messages
-- Displays communication status
-- Real-time activity updates
+### Tab 2: Server Monitor
+View real-time server logs and connection status
 
-## 🛠️ Customization
+### Tab 3: Client Monitor
+View client messages and activity logs
 
-### Modify Server Behavior
-Edit `backend/server.c`:
-```c
-// Change tick interval
-sleep(2);  // Change from 1 to 2 seconds
-```
+### Shutting Down
+Click the **"Shutdown Engine"** button to close all processes cleanly.
 
-### Modify Client Behavior
-Edit `backend/client.cpp`:
-```cpp
-// Change message frequency
-std::this_thread::sleep_for(std::chrono::seconds(2));
-```
+## Calculator Guide
 
-### Change GUI Theme
-Edit `frontend/visualizer.py`:
-```python
-# Change colors
-root.configure(bg="#1e1e1e")  # Background
-operator_style = {"bg": "#FF9800"}  # Button colors
-```
+### Basic Operations
 
-## 📊 Performance Metrics
+| Button | Function | Example | Result |
+|--------|----------|---------|--------|
+| `+` | Addition | `25+75` | `100` |
+| `-` | Subtraction | `100-45` | `55` |
+| `*` | Multiplication | `15*6` | `90` |
+| `/` | Division | `100/4` | `25` |
+| `=` | Calculate | Shows result | - |
 
-| Component | Language | Memory Usage | CPU Usage |
-|-----------|----------|--------------|-----------|
-| Server | C | ~2 MB | <1% |
-| Client | C++ | ~3 MB | <1% |
-| GUI | Python | ~50 MB | 1-2% |
-| **Total** | - | **~55 MB** | **<3%** |
+### Advanced Functions
 
-## 🐛 Troubleshooting
+| Button | Function | Example | Result |
+|--------|----------|---------|--------|
+| `C` | Clear all | Clears display | - |
+| `←` | Clear last character | Removes one digit | - |
+| `√` | Square root | Type `16` then `√` | `4` |
+| `x²` | Square | Type `5` then `x²` | `25` |
+| `^` | Power | `2^3` | `8` |
 
-### Common Issues & Solutions
+### Tips
+- Use parentheses for complex expressions: `(10+5)*2`
+- Calculator handles decimals: `10.5 * 2`
+- Modulo operator works: `15%4` returns `3`
 
-| Issue | Solution |
-|-------|----------|
-| `gcc: command not found` | Install gcc: `sudo apt install gcc` |
-| `No module named 'tkinter'` | Install tk: `sudo apt install python3-tk` |
-| `Permission denied` | Run `chmod +x scripts/run.sh` |
-| Port already in use | Change port in server.c and kill existing process |
-| Compilation errors | Check if gcc/g++ versions are compatible |
+## Troubleshooting
 
-### Debug Mode
+### Common Issues
+
+**Problem:** `gcc: command not found`
 ```bash
-# Run components individually for debugging
+# Solution: Install build tools
+sudo apt install build-essential
+```
+
+**Problem:** `No module named 'tkinter'`
+```bash
+# Solution: Install Tkinter
+sudo apt install python3-tk
+```
+
+**Problem:** `Permission denied`
+```bash
+# Solution: Make script executable
+chmod +x scripts/run.sh
+```
+
+**Problem:** Python syntax error about strings
+```bash
+# Solution: Make sure visualizer.py uses triple quotes for multi-line strings
+# Correct: """text"""
+# Wrong: "text
+```
+
+### Running Components Individually
+
+For debugging, run each component separately:
+
+```bash
+# Run server alone
 gcc backend/server.c -o backend/server && ./backend/server
+
+# Run client alone
 g++ backend/client.cpp -o backend/client && ./backend/client
+
+# Run GUI alone
 python3 frontend/visualizer.py
 ```
 
-## 📈 Future Enhancements
+## How It Works
 
-- [ ] **Network Communication** - Actual socket programming between server/client
-- [ ] **Web Interface** - Flask/Django web dashboard
-- [ ] **Database Integration** - SQLite for logging calculations
-- [ ] **Docker Support** - Containerized deployment
-- [ ] **Real IPC** - Pipes, shared memory, or message queues
-- [ ] **Graph Visualization** - Real-time charts for server/client metrics
-- [ ] **Configuration File** - JSON/YAML for easy customization
-- [ ] **Unit Tests** - Test suite for all components
+### Process Flow
 
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit changes (`git commit -m 'Add AmazingFeature'`)
-4. Push to branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
-## 📝 License
-
-Distributed under the MIT License. See `LICENSE` for more information.
-
-## 📧 Contact
-
-Your Name - [@yourtwitter](https://twitter.com/yourtwitter) - email@example.com
-
-Project Link: [https://github.com/yourusername/TriCore-Engine](https://github.com/yourusername/TriCore-Engine)
-
-## 🙏 Acknowledgments
-
-- GCC/G++ compiler suite
-- Python Tkinter team
-- Open source community
-
----
-
-## 📊 Badge Gallery
-
-![Static Badge](https://img.shields.io/badge/build-passing-brightgreen)
-![Static Badge](https://img.shields.io/badge/coverage-85%25-yellowgreen)
-![Static Badge](https://img.shields.io/badge/dependencies-up_to_date-brightgreen)
-![Static Badge](https://img.shields.io/badge/PRs-welcome-brightgreen)
-![Static Badge](https://img.shields.io/badge/Docs-passing-brightgreen)
-
----
-
-<div align="center">
-Made with ❤️ for the open source community
-</div>
+```
+User runs ./scripts/run.sh
+         ↓
+Script changes to project root
+         ↓
+Compiles server.c → backend/server
+Compiles client.cpp → backend/client
+         ↓
+Launches server (background process)
+Launches client (background process)
+         ↓
+Launches Python GUI (foreground)
+         ↓
+User interacts with dashboard
+         ↓
+Click "Shutdown Engine" → GUI closes
+         ↓
+Script kills server & client processes
 ```
 
-This README includes:
+### Key Script Logic
 
-✅ **Badges** - Version, languages, license, platform support  
-✅ **Flow Diagrams** - Architecture and sequence flow using Mermaid  
-✅ **Project Structure** - Clear file hierarchy  
-✅ **Usage Guide** - Calculator operations table  
-✅ **Troubleshooting** - Common issues and solutions  
-✅ **Performance Metrics** - Resource usage table  
-✅ **Future Enhancements** - Roadmap for improvements  
-✅ **Customization Guide** - How to modify components  
+The `run.sh` script uses:
+- `cd "$(dirname "$0")/.."` - Always finds correct paths
+- `&` - Runs processes in background
+- `wait` - Waits for GUI to close
+- `kill` - Terminates background processes on exit
 
-To use this README, save it as `README.md` in your project root. The Mermaid diagrams will render on GitHub automatically!
+## Development
+
+### Modifying the Server
+
+Edit `backend/server.c`:
+```c
+// Change tick speed
+sleep(2);  // Change to sleep(1) for faster ticks
+```
+
+### Modifying the Client
+
+Edit `backend/client.cpp`:
+```cpp
+// Change message frequency
+std::this_thread::sleep_for(std::chrono::seconds(1));
+```
+
+### Modifying the GUI
+
+Edit `frontend/visualizer.py`:
+```python
+# Change window size
+root.geometry("1000x700")
+
+# Change colors
+root.configure(bg="#1e1e1e")
+```
+
+## License
+
+This project is licensed under the MIT License - see below:
+
+```
+MIT License
+
+Copyright (c) 2024
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files, to deal in the Software
+without restriction, including without limitation the rights to use, copy,
+modify, merge, publish, distribute, sublicense, and/or sell copies of the
+Software, subject to the following conditions...
+
+Full license text: https://opensource.org/licenses/MIT
+```
+
+## Support
+
+For issues or questions:
+1. Check the [Troubleshooting](#troubleshooting) section
+2. Run components individually to isolate problems
+3. Ensure all prerequisites are installed
+
+---
+
+**Made with C, C++, and Python** | Version 1.0.0
+```
+
+This README is:
+- ✅ **Clean and organized** - Clear sections with table of contents
+- ✅ **Practical** - Real commands that work
+- ✅ **Concise** - No unnecessary diagrams or fluff
+- ✅ **User-friendly** - Tables for quick reference
+- ✅ **Troubleshooting focused** - Common issues with solutions
+- ✅ **Proper markdown** - Renders correctly on GitHub
+
+Save this as `README.md` in your project root!
