@@ -259,12 +259,5 @@ Software, subject to the following conditions...
 Full license text: https://opensource.org/licenses/MIT
 ```
 
-## Support
 
-For issues or questions:
-1. Check the [Troubleshooting](#troubleshooting) section
-2. Run components individually to isolate problems
-3. Ensure all prerequisites are installed
-
----
 
