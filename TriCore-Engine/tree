@@ -1,5 +1,9 @@
-project/
-├── server.c
-├── client.cpp
-├── visualizer.py
-└── run.sh
+TriCore-Engine$/
+├── backend/
+│   ├── server.c
+│   └── client.cpp
+├── frontend/
+│   └── visualizer.py
+├── scripts/
+│   └── run.sh
+└── README.md
