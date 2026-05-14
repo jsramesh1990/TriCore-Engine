@@ -30,11 +30,11 @@ All components launch from a single bash script and run simultaneously.
 
 ## Features
 
-- 🎯 **One-Command Launch** - Single script compiles and runs everything
-- 🧮 **Built-in Calculator** - Full arithmetic operations with advanced functions
-- 📊 **Real-time Monitoring** - Live server and client logs
-- 🎨 **Modern Dark Theme** - Professional-looking interface
-- 🔄 **Automatic Cleanup** - Proper process termination on exit
+-  **One-Command Launch** - Single script compiles and runs everything
+-  **Built-in Calculator** - Full arithmetic operations with advanced functions
+-  **Real-time Monitoring** - Live server and client logs
+-  **Modern Dark Theme** - Professional-looking interface
+-  **Automatic Cleanup** - Proper process termination on exit
 
 ## Project Structure
 
@@ -241,23 +241,6 @@ root.geometry("1000x700")
 root.configure(bg="#1e1e1e")
 ```
 
-## License
-
-This project is licensed under the MIT License - see below:
-
-```
-MIT License
-
-Copyright (c) 2024
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files, to deal in the Software
-without restriction, including without limitation the rights to use, copy,
-modify, merge, publish, distribute, sublicense, and/or sell copies of the
-Software, subject to the following conditions...
-
-Full license text: https://opensource.org/licenses/MIT
-```
 
 
 
